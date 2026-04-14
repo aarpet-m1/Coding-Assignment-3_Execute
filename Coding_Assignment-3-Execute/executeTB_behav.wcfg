@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="executeTB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="executeTB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="44995fs"></ZoomStartTime>
+      <ZoomEndTime time="45008fs"></ZoomEndTime>
+      <Cursor1Time time="45000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="198"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/executeTB/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/ctlwb_in" type="array">
+      <obj_property name="ElementShortName">ctlwb_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ctlwb_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/ctlm_in" type="array">
+      <obj_property name="ElementShortName">ctlm_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ctlm_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/npc" type="array">
+      <obj_property name="ElementShortName">npc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">npc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/rdata1" type="array">
+      <obj_property name="ElementShortName">rdata1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/rdata2" type="array">
+      <obj_property name="ElementShortName">rdata2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/s_extend" type="array">
+      <obj_property name="ElementShortName">s_extend[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_extend[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/instr_2016" type="array">
+      <obj_property name="ElementShortName">instr_2016[4:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_2016[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/instr_1511" type="array">
+      <obj_property name="ElementShortName">instr_1511[4:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_1511[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/alu_op" type="array">
+      <obj_property name="ElementShortName">alu_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/funct" type="array">
+      <obj_property name="ElementShortName">funct[5:0]</obj_property>
+      <obj_property name="ObjectShortName">funct[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/alusrc" type="logic">
+      <obj_property name="ElementShortName">alusrc</obj_property>
+      <obj_property name="ObjectShortName">alusrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/regdst" type="logic">
+      <obj_property name="ElementShortName">regdst</obj_property>
+      <obj_property name="ObjectShortName">regdst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/ctlwb_out" type="array">
+      <obj_property name="ElementShortName">ctlwb_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ctlwb_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/ctlm_out" type="array">
+      <obj_property name="ElementShortName">ctlm_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ctlm_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/adder_out" type="array">
+      <obj_property name="ElementShortName">adder_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">adder_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/alu_result_out" type="array">
+      <obj_property name="ElementShortName">alu_result_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_result_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/rdata2_out" type="array">
+      <obj_property name="ElementShortName">rdata2_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata2_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/executeTB/muxout_out" type="array">
+      <obj_property name="ElementShortName">muxout_out[4:0]</obj_property>
+      <obj_property name="ObjectShortName">muxout_out[4:0]</obj_property>
+   </wvobject>
+</wave_config>

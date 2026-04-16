@@ -1,19 +1,29 @@
 `timescale 1ns / 1ps
 
-module executeTB;
+module execute_tb;
+
     reg clk;
-    reg [1:0] ctlwb_in, ctlm_in;
-    reg [31:0] npc, rdata1, rdata2, s_extend;
-    reg [4:0] instr_2016, instr_1511;
+    reg [1:0] ctlwb_in;
+    reg [2:0] ctlm_in;
+    reg [31:0] npc;
+    reg [31:0] rdata1;
+    reg [31:0] rdata2;
+    reg [31:0] s_extend;
+    reg [4:0] instr_2016;
+    reg [4:0] instr_1511;
     reg [1:0] alu_op;
     reg [5:0] funct;
-    reg alusrc, regdst;
+    reg alusrc;
+    reg regdst;
 
-    wire [1:0] ctlwb_out, ctlm_out;
-    wire [31:0] adder_out, alu_result_out, rdata2_out;
+    wire [1:0] ctlwb_out;
+    wire [2:0] ctlm_out;
+    wire [31:0] adder_out;
+    wire [31:0] alu_result_out;
+    wire [31:0] rdata2_out;
     wire [4:0] muxout_out;
 
-    execute uut (
+    execute dut(
         .clk(clk),
         .ctlwb_in(ctlwb_in),
         .ctlm_in(ctlm_in),
@@ -41,51 +51,155 @@ module executeTB;
     end
 
     initial begin
-        // Case 1: add immediate style path
-        ctlwb_in = 2'b10;
-        ctlm_in = 3'b001;
-        npc = 32'd100;
-        rdata1 = 32'd10;
-        rdata2 = 32'd20;
-        s_extend = 32'd4;
-        instr_2016 = 5'd5;
-        instr_1511 = 5'd10;
-        alu_op = 2'b10;
-        funct = 6'b100000;
-        alusrc = 1'b1;
-        regdst = 1'b1;
-        #15;
+        
+        //  add $rd, $rs, $rt
+        ctlwb_in = 2'b10;   
+        ctlm_in  = 3'b000; 
+        
+        npc = 100;
+        
+        rdata1 = 20;  
+        rdata2 = 7;  
+        s_extend = 5; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd11; 
+        
+        alu_op = 2'b10;     
+        funct  = 6'b100000; 
+        
+        alusrc = 0; 
+        regdst = 1; 
+        
+        #10;
+        
+        // addi $rt, $rs, 5
+        ctlwb_in = 2'b10;   
+        ctlm_in  = 3'b000; 
+        
+        npc = 104;
+        
+        rdata1 = 20;  
+        rdata2 = 7;   
+        s_extend = 5; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd0;  
+        
+        alu_op = 2'b00;     
+        funct  = 6'b000000; 
+        
+        alusrc = 1; 
+        regdst = 0; 
+        
+        #10;
+        
+        //  sub $rd, $rs, $rt
+        ctlwb_in = 2'b10;   
+        ctlm_in  = 3'b000; 
+        
+        npc = 108;
+        
+        rdata1 = 20;  
+        rdata2 = 7;  
+        s_extend = 5; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd12; 
+        
+        alu_op = 2'b10;     
+        funct  = 6'b100010; 
+        
+        alusrc = 0; 
+        regdst = 1; 
+        
+        #10;
+        
+        // and $rd, $rs, $rt
+        ctlwb_in = 2'b10;   
+        ctlm_in  = 3'b000; 
+        
+        npc = 112;
+        
+        rdata1 = 20;  
+        rdata2 = 7;   
+        s_extend = 5; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd13;  
+        
+        alu_op = 2'b10;     
+        funct  = 6'b100100; 
+        
+        alusrc = 0; 
+        regdst = 1; 
+        
+        #10;
 
-        // Case 2: subtract using register input
-        ctlwb_in = 2'b01;
-        ctlm_in = 3'b100;
-        npc = 32'd100;
-        rdata1 = 32'd10;
-        rdata2 = 32'd20;
-        s_extend = 32'd8;
-        instr_2016 = 5'd5;
-        instr_1511 = 5'd10;
-        alu_op = 2'b01;
-        funct = 6'b100010;
-        alusrc = 1'b0;
-        regdst = 1'b0;
-        #15;
+        // or $rd, $rs, $rt
+        ctlwb_in = 2'b10;   
+        ctlm_in  = 3'b000; 
+        
+        npc = 116;
+        
+        rdata1 = 20;  
+        rdata2 = 7;   
+        s_extend = 5; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd14;  
+        
+        alu_op = 2'b10;     
+        funct  = 6'b100101; 
+        
+        alusrc = 0; 
+        regdst = 1; 
+        
+        #10;
+        
+        // beq $rs, $rt, offset
+        ctlwb_in = 2'b00;   
+        ctlm_in  = 3'b001; 
+        
+        npc = 120;
+        
+        rdata1 = 20;  
+        rdata2 = 7;  
+        s_extend = 5; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd0;  
+        
+        alu_op = 2'b01;     
+        funct  = 6'b000000; 
+        
+        alusrc = 0; 
+        regdst = 0; 
+        
+        #10;
+        
+        // beq $rs, $rt, offset
+        ctlwb_in = 2'b00;   
+        ctlm_in  = 3'b001; 
+        
+        npc = 120;
+        
+        rdata1 = 20;  
+        rdata2 = 20;  
+        s_extend = 20; 
+        
+        instr_2016 = 5'd10; 
+        instr_1511 = 5'd0;  
+        
+        alu_op = 2'b01;     
+        funct  = 6'b000000; 
+        
+        alusrc = 0; 
+        regdst = 0; 
+        
+        #10;
 
-        // Case 3: R-type AND
-        ctlwb_in = 2'b10;
-        ctlm_in = 3'b000;
-        npc = 32'd200;
-        rdata1 = 32'h0000000F;
-        rdata2 = 32'h00000033;
-        s_extend = 32'd12;
-        instr_2016 = 5'd8;
-        instr_1511 = 5'd9;
-        alu_op = 2'b10;
-        funct = 6'b100100;
-        alusrc = 1'b0;
-        regdst = 1'b1;
-        #15;
-
-        $stop;
+        $finish;
     end
+
 endmodule
